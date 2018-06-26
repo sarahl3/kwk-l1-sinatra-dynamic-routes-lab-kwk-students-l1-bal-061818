@@ -24,6 +24,7 @@ describe App do
   describe 'GET /square/:number' do
     it 'sends a 200 status code' do
       get '/square/4'
+      
 
       expect(last_response.status).to eq(200)
     end
@@ -86,28 +87,40 @@ describe App do
 
   describe 'GET /:operation/:number1/:number2' do
     it 'adds two numbers together' do
-      get '/add/215/93'
-
+      get '/add/215/93' do
+        215 = params[:215:].to_i
+        93 = params [:93:].to_i
+        (215+93).to_s
+  
       expect(last_response.status).to eq(200)
       expect(last_response.body).to include('308')
     end
 
     it 'subtracts the second number from the first' do
-      get '/subtract/291/174'
+      get '/subtract/291/174' do
+        291 = params[:291:].to_i
+        174 = params [:174:].to_i
+        (291-174).to_s
 
       expect(last_response.status).to eq(200)
       expect(last_response.body).to include('117')
     end
 
     it 'multiplies two numbers together' do
-      get '/multiply/12/11'
+      get '/multiply/12/11' do
+        12 = params[:12:].to_i
+        11 = params [:11:].to_i
+        (12*11).to_s
 
       expect(last_response.status).to eq(200)
       expect(last_response.body).to include('132')
     end
 
     it 'divides the first number by the second number' do
-      get '/divide/612/4'
+      get '/divide/612/4' do
+        612 = params[:612:].to_i
+        4 = params [:4:].to_i
+        (612/4).to_s
 
       expect(last_response.status).to eq(200)
       expect(last_response.body).to include('153')
