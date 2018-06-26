@@ -85,7 +85,11 @@ describe App do
     end
   end
 
-  describe 'GET /:operation/:number1/:number2' do
+  describe 
+  get /:operation/:number1/:number2' do
+     @operation = params[operation]
+     @number1 = params[number1]
+     @number2 = params [number2]
     it 'adds two numbers together' do
       get '/add/215/93' do
         215 = params[:215:].to_i
